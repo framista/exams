@@ -7,7 +7,13 @@ import { toogleTheme } from '../../../redux/theme/actions';
 const NavbarComponent = (props) => {
   const { background } = props;
   return (
-    <Navbar collapseOnSelect expand="md" bg={background} variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="md"
+      bg={background}
+      variant="dark"
+      className="shadow"
+    >
       <Form>
         <Form.Check
           className={`bg-${background}`}

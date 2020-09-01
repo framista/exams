@@ -15,8 +15,6 @@ const MenuHome = ({ filters, addFilter, clearFilters, addExam }) => {
     }
   };
   const saveExam = (exam) => {
-    // save
-    console.log(exam);
     addExam(exam);
     setModalFormShow(false);
   };

@@ -18,9 +18,10 @@ const ModalForm = ({ show, onHide, title, exam, saveExam }) => {
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
+    } else {
+      saveExam(examData);
     }
     setValidated(true);
-    saveExam(examData);
   };
   return (
     <Modal

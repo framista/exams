@@ -4,14 +4,15 @@ import { Container, Row } from 'react-bootstrap';
 import PageContainer from '../../layout/page-container';
 import ExamCard from '../../layout/card';
 import MenuHome from '../../layout/menu-home';
+import Filters from '../../layout/filters';
+import { getStatusExam } from '../../../utils/examLogic';
 
 const Home = ({ exams }) => {
   return (
     <PageContainer>
       <Container>
-        {/* <Row> */}
-          <MenuHome />
-        {/* </Row> */}
+        <MenuHome />
+        <Filters />
         <Row>
           {exams.map((exam) => (
             <ExamCard exam={exam} key={exam.id} />
@@ -22,8 +23,19 @@ const Home = ({ exams }) => {
   );
 };
 
+const getFilteredExams = (exams, filters) => {
+  if (filters.length === 0) {
+    return exams;
+  }
+  return exams.filter((exam) => {
+    const { grade, date } = exam;
+    const status = getStatusExam(grade, date);
+    if (filters.includes(status)) return exam;
+  });
+};
+
 const mapStateToProps = (state) => ({
-  exams: state.exams.allExams,
+  exams: getFilteredExams(state.exams.allExams, state.exams.filters),
 });
 
 export default connect(mapStateToProps)(Home);

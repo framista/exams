@@ -1,7 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ButtonGroup, Button, DropdownButton, Dropdown } from 'react-bootstrap';
+import { addFilter, clearFilters } from '../../../redux/exams/actions';
 
-const MenuHome = () => {
+const MenuHome = ({ filters, addFilter, clearFilters }) => {
+  const handleFilter = (filter) => {
+    if (filter === 'all') {
+      return clearFilters();
+    }
+    if (filters.indexOf(filter) === -1) {
+      return addFilter(filter);
+    }
+  };
   return (
     <ButtonGroup className="mt-2 mb-4">
       <Button variant="success">Nowy sprawdzian</Button>
@@ -10,7 +20,7 @@ const MenuHome = () => {
         as={ButtonGroup}
         title="Filtruj"
         id="bg-nested-dropdown"
-        onSelect={(e) => console.log(e)}
+        onSelect={(e) => handleFilter(e)}
       >
         <Dropdown.Item eventKey="all">Wszystko</Dropdown.Item>
         <Dropdown.Item eventKey="future">Przyszłe</Dropdown.Item>
@@ -32,4 +42,12 @@ const MenuHome = () => {
   );
 };
 
-export default MenuHome;
+const mapStateToProps = (state) => ({ filters: state.exams.filters });
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFilter: (filter) => dispatch(addFilter(filter)),
+    clearFilters: () => dispatch(clearFilters()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuHome);

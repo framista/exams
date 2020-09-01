@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { formatDate } from '../../../utils/date';
-import { getBackgroundCard } from '../../../utils/cardBackground';
+import { getBackgroundCard } from '../../../utils/examLogic';
 
 const ExamCard = ({ exam }) => {
   const { id, subject, unit, tasks, teacher, date, grade } = exam;

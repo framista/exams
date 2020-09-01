@@ -15,3 +15,16 @@ export const getBackgroundCard = (grade, date) => {
   }
   return 'info'; // future
 };
+
+export const getStatusExam = (grade, date) => {
+  if (grade === 1) {
+    return 'failed';
+  }
+  if (grade > 2) {
+    return 'passed';
+  }
+  if (date < new Date()) {
+    return 'noResult';
+  }
+  return 'future';
+};

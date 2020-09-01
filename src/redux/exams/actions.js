@@ -1,4 +1,12 @@
-import { ADD_FILTER, CLEAR_FILTERS, DELETE_FILTER, ADD_EXAM } from '../types';
+import {
+  ADD_FILTER,
+  CLEAR_FILTERS,
+  DELETE_FILTER,
+  ADD_EXAM,
+  UPDATE_EXAM,
+} from '../types';
+
+// filters
 
 export const addFilter = (filter) => ({ type: ADD_FILTER, payload: filter });
 
@@ -9,4 +17,8 @@ export const deleteFilter = (filter) => ({
 
 export const clearFilters = () => ({ type: CLEAR_FILTERS });
 
+// exams
+
 export const addExam = (exam) => ({ type: ADD_EXAM, payload: exam });
+
+export const updateExam = (exam) => ({ type: UPDATE_EXAM, payload: exam });

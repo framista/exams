@@ -1,4 +1,10 @@
-import { ADD_FILTER, CLEAR_FILTERS, DELETE_FILTER, ADD_EXAM } from '../types';
+import {
+  ADD_FILTER,
+  CLEAR_FILTERS,
+  DELETE_FILTER,
+  ADD_EXAM,
+  UPDATE_EXAM,
+} from '../types';
 
 const initialState = {
   filters: ['failed'],
@@ -92,6 +98,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         allExams: [action.payload, ...state.allExams],
+      };
+    case UPDATE_EXAM:
+      return {
+        ...state,
+        allExams: state.allExams.map((exam) =>
+          exam.id === action.payload.id ? action.payload : exam
+        ),
       };
     default:
       return state;

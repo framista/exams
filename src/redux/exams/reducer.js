@@ -1,6 +1,7 @@
-import { ADD_EXAM } from '../types';
+import { ADD_FILTER, CLEAR_FILTERS, DELETE_FILTER } from '../types';
 
 const initialState = {
+  filters: ['failed'],
   allExams: [
     {
       id: 1,
@@ -72,6 +73,21 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_FILTER:
+      return {
+        ...state,
+        filters: [...state.filters, action.payload],
+      };
+    case CLEAR_FILTERS:
+      return {
+        ...state,
+        filters: [],
+      };
+    case DELETE_FILTER:
+      return {
+        ...state,
+        filters: state.filters.filter((filter) => filter !== action.payload),
+      };
     default:
       return state;
   }

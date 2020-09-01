@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { ButtonGroup, Button, DropdownButton, Dropdown } from 'react-bootstrap';
-import { addFilter, clearFilters } from '../../../redux/exams/actions';
+import { addFilter, clearFilters, addExam } from '../../../redux/exams/actions';
 import ModalForm from '../../layout/modal-form';
 
-const MenuHome = ({ filters, addFilter, clearFilters }) => {
+const MenuHome = ({ filters, addFilter, clearFilters, addExam }) => {
   const [modalFormShow, setModalFormShow] = useState(false);
   const handleFilter = (filter) => {
     if (filter === 'all') {
@@ -13,6 +13,12 @@ const MenuHome = ({ filters, addFilter, clearFilters }) => {
     if (filters.indexOf(filter) === -1) {
       return addFilter(filter);
     }
+  };
+  const saveExam = (exam) => {
+    // save
+    console.log(exam);
+    addExam(exam);
+    setModalFormShow(false);
   };
   return (
     <Fragment>
@@ -48,6 +54,7 @@ const MenuHome = ({ filters, addFilter, clearFilters }) => {
         show={modalFormShow}
         onHide={() => setModalFormShow(false)}
         title="Dodaj sprawdzian"
+        saveExam={saveExam}
       />
     </Fragment>
   );
@@ -58,6 +65,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addFilter: (filter) => dispatch(addFilter(filter)),
     clearFilters: () => dispatch(clearFilters()),
+    addExam: (exam) => dispatch(addExam(exam)),
   };
 };
 

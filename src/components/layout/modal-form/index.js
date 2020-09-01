@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const ModalForm = ({ show, onHide, title, exam }) => {
+const ModalForm = ({ show, onHide, title, exam, saveExam }) => {
   const [examData, setExamData] = useState(exam);
   const [validated, setValidated] = useState(false);
 
@@ -20,6 +20,7 @@ const ModalForm = ({ show, onHide, title, exam }) => {
       e.stopPropagation();
     }
     setValidated(true);
+    saveExam(examData);
   };
   return (
     <Modal
@@ -37,21 +38,48 @@ const ModalForm = ({ show, onHide, title, exam }) => {
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Label>Przedmiot</Form.Label>
-            <Form.Control type="text" required minLength="5" maxLength="50" />
+            <Form.Control
+              type="text"
+              required
+              minLength="5"
+              maxLength="50"
+              value={examData.subject}
+              onChange={(e) =>
+                setExamData({ ...examData, subject: e.target.value })
+              }
+            />
             <Form.Control.Feedback type="invalid">
               Pole powinno mieć 5 - 50 znaków.
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group>
             <Form.Label>Nauczyciel</Form.Label>
-            <Form.Control type="text" required minLength="5" maxLength="50" />
+            <Form.Control
+              type="text"
+              required
+              minLength="5"
+              maxLength="50"
+              value={examData.teacher}
+              onChange={(e) =>
+                setExamData({ ...examData, teacher: e.target.value })
+              }
+            />
             <Form.Control.Feedback type="invalid">
               Pole powinno mieć 5 - 50 znaków.
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group>
             <Form.Label>Dział</Form.Label>
-            <Form.Control type="text" required minLength="5" maxLength="50" />
+            <Form.Control
+              type="text"
+              required
+              minLength="5"
+              maxLength="50"
+              value={examData.unit}
+              onChange={(e) =>
+                setExamData({ ...examData, unit: e.target.value })
+              }
+            />
             <Form.Control.Feedback type="invalid">
               Pole powinno mieć 5 - 50 znaków.
             </Form.Control.Feedback>
@@ -64,6 +92,10 @@ const ModalForm = ({ show, onHide, title, exam }) => {
               required
               minLength="15"
               maxLength="100"
+              value={examData.tasks}
+              onChange={(e) =>
+                setExamData({ ...examData, tasks: e.target.value })
+              }
             />
             <Form.Control.Feedback type="invalid">
               Pole powinno mieć 15 - 100 znaków.
@@ -89,7 +121,7 @@ const ModalForm = ({ show, onHide, title, exam }) => {
             <Form.Label className="mr-3">Data</Form.Label>
             <DatePicker
               selected={examData.date}
-              onChange={(date) => setExamData({ ...exam, date })}
+              onChange={(date) => setExamData({ ...examData, date })}
               dateFormat="dd.MM.yyyy"
             />
           </Form.Group>
@@ -112,6 +144,7 @@ ModalForm.propTypes = {
   onHide: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   exam: PropTypes.object.isRequired,
+  saveExam: PropTypes.func.isRequired,
 };
 
 ModalForm.defaultProps = {

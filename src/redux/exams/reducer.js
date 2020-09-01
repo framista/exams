@@ -34,7 +34,7 @@ const initialState = {
       subject: 'historia',
       unit: 'królowie polski',
       tasks:
-        'Królowie z dynastii Piastów i daty ich koronacji przeszłość 1 sdf gf mlk dsf mlk sdfmlk  ooi fg sdg fd fds sdfg fsdkm sf klsfdmgk sfd lmkd sg',
+        'Królowie z dynastii Piastów i daty ich koronacji przeszłość 1  sfd lmkd sg',
       teacher: 'Halina Wielkopolska',
       date: new Date(2020, 5, 12),
       grade: 1,

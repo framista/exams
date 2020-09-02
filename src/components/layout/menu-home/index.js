@@ -7,6 +7,7 @@ import {
   addExam,
   sortExams,
 } from '../../../redux/exams/actions';
+import { v4 as uuidv4 } from 'uuid';
 import ModalForm from '../../layout/modal-form';
 
 const MenuHome = ({ filters, addFilter, clearFilters, addExam, sortExams }) => {
@@ -61,6 +62,15 @@ const MenuHome = ({ filters, addFilter, clearFilters, addExam, sortExams }) => {
         onHide={() => setModalFormShow(false)}
         title="Dodaj sprawdzian"
         saveExam={saveExam}
+        exam={{
+          id: uuidv4(),
+          teacher: '',
+          subject: '',
+          unit: '',
+          tasks: '',
+          grade: '',
+          date: new Date(),
+        }}
       />
     </Fragment>
   );

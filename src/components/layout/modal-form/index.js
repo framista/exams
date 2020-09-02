@@ -20,6 +20,8 @@ const ModalForm = ({ show, onHide, title, exam, saveExam }) => {
       e.stopPropagation();
     } else {
       saveExam(examData);
+      setExamData(exam);
+      setValidated(true);
     }
     setValidated(true);
   };

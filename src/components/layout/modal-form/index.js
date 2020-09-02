@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const ModalForm = ({ show, onHide, title, exam, saveExam }) => {
+const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
   const [examData, setExamData] = useState(exam);
   const [validated, setValidated] = useState(false);
 
@@ -129,6 +129,15 @@ const ModalForm = ({ show, onHide, title, exam, saveExam }) => {
             />
           </Form.Group>
           <Form.Group className="d-flex justify-content-end">
+            {deleteExam && (
+              <Button
+                variant="danger"
+                className="mr-4"
+                onClick={() => deleteExam(exam.id)}
+              >
+                Usuń
+              </Button>
+            )}
             <Button variant="secondary" className="mr-4" onClick={onHide}>
               Anuluj
             </Button>

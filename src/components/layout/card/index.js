@@ -5,15 +5,19 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { formatDate } from '../../../utils/date';
 import { getBackgroundCard } from '../../../utils/examLogic';
 import ModalForm from '../modal-form';
-import { updateExam } from '../../../redux/exams/actions';
+import { updateExam, deleteExam } from '../../../redux/exams/actions';
 
-const ExamCard = ({ exam, updateExam }) => {
+const ExamCard = ({ exam, updateExam, deleteExam }) => {
   const [modalFormShow, setModalFormShow] = useState(false);
 
   const { subject, unit, tasks, teacher, date, grade } = exam;
 
   const saveExam = (exam) => {
     updateExam(exam);
+    setModalFormShow(false);
+  };
+  const handleDelete = (id) => {
+    deleteExam(id);
     setModalFormShow(false);
   };
   return (
@@ -57,6 +61,7 @@ const ExamCard = ({ exam, updateExam }) => {
         title="Edytuj sprawdzian"
         saveExam={saveExam}
         exam={exam}
+        deleteExam={handleDelete}
       />
     </Col>
   );
@@ -65,6 +70,7 @@ const ExamCard = ({ exam, updateExam }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateExam: (exam) => dispatch(updateExam(exam)),
+    deleteExam: (id) => dispatch(deleteExam(id)),
   };
 };
 

@@ -13,11 +13,15 @@ const Home = ({ exams }) => {
       <Container>
         <MenuHome />
         <Filters />
-        <Row>
-          {exams.map((exam) => (
-            <ExamCard exam={exam} key={exam.id} />
-          ))}
-        </Row>
+        {exams.length > 0 ? (
+          <Row>
+            {exams.map((exam) => (
+              <ExamCard exam={exam} key={exam.id} />
+            ))}
+          </Row>
+        ) : (
+          <h1 className="display-5">Brak sprawdzianów</h1>
+        )}
       </Container>
     </PageContainer>
   );

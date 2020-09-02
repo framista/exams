@@ -4,15 +4,17 @@ import {
   DELETE_FILTER,
   ADD_EXAM,
   UPDATE_EXAM,
+  DELETE_EXAM,
   SORT,
 } from '../types';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   filters: ['failed'],
   sort: '',
   allExams: [
     {
-      id: 1,
+      id: uuidv4(),
       subject: 'matematyka',
       unit: 'równianie kwadratowe',
       tasks: 'Obliczanie delty i wyznaczenie pierwiastków. - przyszłość',
@@ -21,7 +23,7 @@ const initialState = {
       grade: '',
     },
     {
-      id: 2,
+      id: uuidv4(),
       subject: 'historia',
       unit: 'królowie polski',
       tasks: 'Królowie z dynastii Piastów i daty ich koronacji dzisiaj',
@@ -30,7 +32,7 @@ const initialState = {
       grade: '',
     },
     {
-      id: 3,
+      id: uuidv4(),
       subject: 'matematyka',
       unit: 'równianie kwadratowe',
       tasks: 'Obliczanie delty i wyznaczenie pierwiastków. wczoraj',
@@ -39,7 +41,7 @@ const initialState = {
       grade: 6,
     },
     {
-      id: 4,
+      id: uuidv4(),
       subject: 'historia',
       unit: 'królowie polski',
       tasks:
@@ -49,7 +51,7 @@ const initialState = {
       grade: 1,
     },
     {
-      id: 5,
+      id: uuidv4(),
       subject: 'matematyka',
       unit: 'równianie kwadratowe',
       tasks: 'Obliczanie delty i wyznaczenie pierwiastków. za mniej niż 7 dni',
@@ -58,7 +60,7 @@ const initialState = {
       grade: '',
     },
     {
-      id: 6,
+      id: uuidv4(),
       subject: 'historia',
       unit: 'królowie polski',
       tasks:
@@ -68,7 +70,7 @@ const initialState = {
       grade: '',
     },
     {
-      id: 7,
+      id: uuidv4(),
       subject: 'chemia',
       unit: 'kwasy',
       tasks: 'Reakcje i zastosowanie kwasów',
@@ -107,6 +109,11 @@ const reducer = (state = initialState, action) => {
         allExams: state.allExams.map((exam) =>
           exam.id === action.payload.id ? action.payload : exam
         ),
+      };
+    case DELETE_EXAM:
+      return {
+        ...state,
+        allExams: state.allExams.filter(({ id }) => id !== action.payload),
       };
     case SORT:
       return {

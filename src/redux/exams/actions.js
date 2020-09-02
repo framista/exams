@@ -4,6 +4,7 @@ import {
   DELETE_FILTER,
   ADD_EXAM,
   UPDATE_EXAM,
+  DELETE_EXAM,
   SORT,
 } from '../types';
 
@@ -23,6 +24,8 @@ export const clearFilters = () => ({ type: CLEAR_FILTERS });
 export const addExam = (exam) => ({ type: ADD_EXAM, payload: exam });
 
 export const updateExam = (exam) => ({ type: UPDATE_EXAM, payload: exam });
+
+export const deleteExam = (id) => ({ type: DELETE_EXAM, payload: id });
 
 // sort
 

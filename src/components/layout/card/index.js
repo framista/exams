@@ -10,7 +10,7 @@ import { updateExam } from '../../../redux/exams/actions';
 const ExamCard = ({ exam, updateExam }) => {
   const [modalFormShow, setModalFormShow] = useState(false);
 
-  const { id, subject, unit, tasks, teacher, date, grade } = exam;
+  const { subject, unit, tasks, teacher, date, grade } = exam;
 
   const saveExam = (exam) => {
     updateExam(exam);
@@ -19,7 +19,7 @@ const ExamCard = ({ exam, updateExam }) => {
   return (
     <Col sm={6} lg={4} xl={3}>
       <Card
-        className="mb-4 text-light shadow-lg"
+        className="mb-4 text-light shadow"
         onClick={() => setModalFormShow(true)}
         style={{ cursor: 'pointer' }}
         bg={getBackgroundCard(grade, date)}

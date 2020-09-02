@@ -28,3 +28,34 @@ export const getStatusExam = (grade, date) => {
   }
   return 'future';
 };
+
+export const getFilteredExams = (exams, filters) => {
+  if (filters.length === 0) {
+    return exams;
+  }
+  const filteredExams = exams.filter((exam) => {
+    const { grade, date } = exam;
+    const status = getStatusExam(grade, date);
+    if (filters.includes(status)) return exam;
+  });
+  return filteredExams;
+};
+
+export const getSortedExams = (exams, sortType) => {
+  switch (sortType) {
+    case 'date':
+      return exams.sort((a, b) => new Date(b.date) - new Date(a.date));
+    case 'subject':
+      return exams.sort((a, b) => {
+        if (a.subject.toLowerCase() < b.subject.toLowerCase()) {
+          return -1;
+        }
+        if (a.subject.toLowerCase() > b.subject.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+    default:
+      return exams;
+  }
+};

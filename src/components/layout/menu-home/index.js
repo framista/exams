@@ -1,10 +1,15 @@
 import React, { useState, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { ButtonGroup, Button, DropdownButton, Dropdown } from 'react-bootstrap';
-import { addFilter, clearFilters, addExam } from '../../../redux/exams/actions';
+import {
+  addFilter,
+  clearFilters,
+  addExam,
+  sortExams,
+} from '../../../redux/exams/actions';
 import ModalForm from '../../layout/modal-form';
 
-const MenuHome = ({ filters, addFilter, clearFilters, addExam }) => {
+const MenuHome = ({ filters, addFilter, clearFilters, addExam, sortExams }) => {
   const [modalFormShow, setModalFormShow] = useState(false);
   const handleFilter = (filter) => {
     if (filter === 'all') {
@@ -13,6 +18,9 @@ const MenuHome = ({ filters, addFilter, clearFilters, addExam }) => {
     if (filters.indexOf(filter) === -1) {
       return addFilter(filter);
     }
+  };
+  const handleSort = (sortType) => {
+    sortExams(sortType);
   };
   const saveExam = (exam) => {
     addExam(exam);
@@ -42,7 +50,7 @@ const MenuHome = ({ filters, addFilter, clearFilters, addExam }) => {
           as={ButtonGroup}
           title="Sortuj"
           id="bg-nested-dropdown"
-          onSelect={(e) => console.log(e)}
+          onSelect={(e) => handleSort(e)}
         >
           <Dropdown.Item eventKey="date">Data</Dropdown.Item>
           <Dropdown.Item eventKey="subject">Przedmiot</Dropdown.Item>
@@ -64,6 +72,7 @@ const mapDispatchToProps = (dispatch) => {
     addFilter: (filter) => dispatch(addFilter(filter)),
     clearFilters: () => dispatch(clearFilters()),
     addExam: (exam) => dispatch(addExam(exam)),
+    sortExams: (sortType) => dispatch(sortExams(sortType)),
   };
 };
 

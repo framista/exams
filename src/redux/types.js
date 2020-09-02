@@ -10,3 +10,6 @@ export const DELETE_EXAM = 'DELETE_EXAM';
 export const ADD_FILTER = 'ADD_FILTER';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 export const DELETE_FILTER = 'DELETE_FILTER';
+
+//sort
+export const SORT = 'SORT';

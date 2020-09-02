@@ -4,10 +4,12 @@ import {
   DELETE_FILTER,
   ADD_EXAM,
   UPDATE_EXAM,
+  SORT,
 } from '../types';
 
 const initialState = {
   filters: ['failed'],
+  sort: '',
   allExams: [
     {
       id: 1,
@@ -105,6 +107,11 @@ const reducer = (state = initialState, action) => {
         allExams: state.allExams.map((exam) =>
           exam.id === action.payload.id ? action.payload : exam
         ),
+      };
+    case SORT:
+      return {
+        ...state,
+        sort: action.payload,
       };
     default:
       return state;

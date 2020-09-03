@@ -27,7 +27,10 @@ const NavbarComponent = (props) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
           <Link className="mr-4 my-2 text-light" to="/">
-            Wszystkie
+            Wszystko
+          </Link>
+          <Link className="mr-4 my-2 text-light" to="/subjects">
+            Przedmioty
           </Link>
           <Link className="mr-4 my-2 text-light" to="/about">
             O stronie

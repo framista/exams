@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,6 +8,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
   const [examData, setExamData] = useState(exam);
   const [validated, setValidated] = useState(false);
+
+  useEffect(() => {
+    setExamData({ ...exam });
+  }, [show, exam]);
 
   const handleGrade = (e) => {
     setExamData({ ...examData, grade: e.target.value });

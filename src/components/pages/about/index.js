@@ -12,14 +12,14 @@ const About = () => {
   return (
     <PageContainer>
       <Container className="d-flex flex-column align-items-center text-center">
-        <h3 className="mt-3 mb-5 text-success">
+        <h3 className="mt-3 mb-5 text-primary">
           Oznaczenia kolorów sprawdzianów
         </h3>
         <div style={{ maxWidth: '700px' }}>
           {typesOfExamsCard.map((type, index) => (
             <Card key={index} bg={type.variant} className="mb-3 text-light">
               <Card.Header>
-                <Card.Title>{type.text}</Card.Title>
+                <Card.Title className="my-1">{type.text}</Card.Title>
               </Card.Header>
             </Card>
           ))}

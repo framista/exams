@@ -4,7 +4,8 @@ export const getDateForXDays = (number) => {
   return now;
 };
 
-export const formatDate = (date) => {
+export const formatDate = (dateParam) => {
+  const date = new Date(dateParam);
   const day = formatNumber(date.getDate());
   const month = formatNumber(date.getMonth() + 1);
   const year = date.getFullYear();

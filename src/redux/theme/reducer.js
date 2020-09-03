@@ -1,9 +1,5 @@
 import { TOOGLE_THEME } from '../types';
-
-const initialState = {
-  background: 'primary',
-};
-
+import initialState from './initial';
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case TOOGLE_THEME:

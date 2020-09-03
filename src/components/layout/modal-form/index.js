@@ -4,6 +4,7 @@ import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import AutocompleteInput from '../../layout/autocomplete-input';
 
 const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
   const [examData, setExamData] = useState(exam);
@@ -19,7 +20,6 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
   };
 
   const validateDateAndGrade = () => {
-    console.log(examData.grade);
     return !(
       Number.isInteger(parseInt(examData.grade)) &&
       new Date(examData.date).getTime() > new Date().getTime()
@@ -61,38 +61,22 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
       </Modal.Header>
       <Modal.Body>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.Label>Przedmiot</Form.Label>
-            <Form.Control
-              type="text"
-              required
-              minLength="5"
-              maxLength="50"
-              value={examData.subject}
-              onChange={(e) =>
-                setExamData({ ...examData, subject: e.target.value })
-              }
-            />
-            <Form.Control.Feedback type="invalid">
-              Pole powinno mieć 5 - 50 znaków.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Nauczyciel</Form.Label>
-            <Form.Control
-              type="text"
-              required
-              minLength="5"
-              maxLength="50"
-              value={examData.teacher}
-              onChange={(e) =>
-                setExamData({ ...examData, teacher: e.target.value })
-              }
-            />
-            <Form.Control.Feedback type="invalid">
-              Pole powinno mieć 5 - 50 znaków.
-            </Form.Control.Feedback>
-          </Form.Group>
+          <AutocompleteInput
+            value={examData.subject}
+            handleChange={(value) =>
+              setExamData({ ...examData, subject: value })
+            }
+            data={'subject'}
+            label="Przedmiot"
+          />
+          <AutocompleteInput
+            value={examData.teacher}
+            handleChange={(value) =>
+              setExamData({ ...examData, teacher: value })
+            }
+            data={'teacher'}
+            label="Nauczyciel"
+          />
           <Form.Group>
             <Form.Label>Dział</Form.Label>
             <Form.Control
@@ -106,7 +90,7 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
               }
             />
             <Form.Control.Feedback type="invalid">
-              Pole powinno mieć 5 - 50 znaków.
+              Pole powinno mieć 5 - 50 znaków
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group>
@@ -123,7 +107,7 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
               }
             />
             <Form.Control.Feedback type="invalid">
-              Pole powinno mieć 15 - 100 znaków.
+              Pole powinno mieć 15 - 100 znaków
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group>

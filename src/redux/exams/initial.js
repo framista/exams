@@ -26,7 +26,7 @@ const initialState = {
     {
       id: uuidv4(),
       subject: 'matematyka',
-      unit: 'równianie kwadratowe',
+      unit: 'równanie kwadratowe',
       tasks: 'Obliczanie delty i wyznaczenie pierwiastków',
       teacher: 'Tomasz Matyski',
       date: getDateForXDays(-10),
@@ -57,12 +57,12 @@ const initialState = {
       tasks: 'Reakcje i zastosowanie kwasów',
       teacher: 'Karolina Głogowska',
       date: getDateForXDays(-5),
-      grade: '3',
+      grade: '1',
     },
     {
       id: uuidv4(),
       subject: 'matematyka',
-      unit: 'równianie kwadratowe',
+      unit: 'równanie kwadratowe',
       tasks: 'Rysowanie funkcji kwadratowych w układzie współrzędnych',
       teacher: 'Tomasz Matyski',
       date: getDateForXDays(-3),
@@ -80,7 +80,7 @@ const initialState = {
     {
       id: uuidv4(),
       subject: 'matematyka',
-      unit: 'równianie kwadratowe',
+      unit: 'równanie kwadratowe',
       tasks: 'Maksymalna wartość w przedziale',
       teacher: 'Tomasz Matyski',
       date: getDateForXDays(1),

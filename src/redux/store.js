@@ -11,13 +11,10 @@ const persistedState = loadState() || {
   theme: initialStateTheme,
 };
 
-console.log(persistedState);
-
 const store = createStore(rootReducer, persistedState, composeWithDevTools());
 
 store.subscribe(
   _.throttle(() => {
-    console.log(store.getState());
     saveState(store.getState());
   })
 );

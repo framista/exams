@@ -89,3 +89,9 @@ export const getSubjectsStatisitcs = (exams) =>
       return [...acc];
     }
   }, []);
+
+export const getUniqueExamWithProperty = (exams, property) => {
+  return exams.reduce((acc, exam) => {
+    return acc.includes(exam[property]) ? acc : [...acc, exam[property]];
+  }, []);
+};

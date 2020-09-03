@@ -20,7 +20,7 @@ const Home = ({ exams }) => {
             ))}
           </Row>
         ) : (
-          <h1 className="display-5">Brak sprawdzianów</h1>
+          <h1 className="display-5 text-center">Brak sprawdzianów</h1>
         )}
       </Container>
     </PageContainer>

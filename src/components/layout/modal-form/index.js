@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,6 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
   const [examData, setExamData] = useState(exam);
   const [validated, setValidated] = useState(false);
+  const [dateError, setDateError] = useState(false);
 
   useEffect(() => {
     setExamData({ ...exam });
@@ -17,15 +18,27 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
     setExamData({ ...examData, grade: e.target.value });
   };
 
+  const validateDateAndGrade = () => {
+    console.log(examData.grade);
+    return !(
+      Number.isInteger(parseInt(examData.grade)) &&
+      new Date(examData.date).getTime() > new Date().getTime()
+    );
+  };
+
   const handleSubmit = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
     } else {
-      saveExam(examData);
-      setExamData(exam);
-      setValidated(true);
+      const isFormValid = validateDateAndGrade();
+      setDateError(!isFormValid);
+      if (isFormValid) {
+        saveExam(examData);
+        setExamData(exam);
+        setValidated(true);
+      }
     }
     setValidated(true);
   };
@@ -38,6 +51,11 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
       centered
       aria-labelledby="contained-modal-title-vcenter"
     >
+      {dateError && (
+        <Alert variant="danger" className="my-3 mx-3">
+          Nie możesz mieć oceny przed napisaniem <strong>sprawdzianu!</strong>
+        </Alert>
+      )}
       <Modal.Header closeButton>
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
@@ -115,7 +133,7 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
               onChange={handleGrade}
               value={examData.grade}
             >
-              <option value="none">Brak</option>
+              <option value="">Brak</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

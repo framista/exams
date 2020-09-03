@@ -1,6 +1,7 @@
 import { getDateForXDays } from './date';
 
-export const getBackgroundCard = (grade, date) => {
+export const getBackgroundCard = (grade, dateParam) => {
+  const date = new Date(dateParam);
   if (grade && parseInt(grade, 10) === 1) {
     return 'danger'; // fail
   }
@@ -16,11 +17,12 @@ export const getBackgroundCard = (grade, date) => {
   return 'info'; // future
 };
 
-export const getStatusExam = (grade, date) => {
+export const getStatusExam = (grade, dateParam) => {
+  const date = new Date(dateParam);
   if (grade && parseInt(grade, 10) === 1) {
     return 'failed';
   }
-  if (grade && parseInt(grade, 10) > 2) {
+  if (grade && parseInt(grade, 10) > 1) {
     return 'passed';
   }
   if (date < new Date()) {

@@ -60,7 +60,7 @@ const ExamCard = ({ exam, updateExam, deleteExam }) => {
         onHide={() => setModalFormShow(false)}
         title="Edytuj sprawdzian"
         saveExam={saveExam}
-        exam={{ ...exam }}
+        exam={{ ...exam, date: new Date(exam.date) }}
         deleteExam={handleDelete}
       />
     </Col>

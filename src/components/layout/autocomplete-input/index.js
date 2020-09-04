@@ -11,6 +11,7 @@ const AutocompleteInput = ({ value, handleChange, data, exams, label }) => {
 
   useEffect(() => {
     handleChange(inputValue);
+    // eslint-disable-next-line
   }, [inputValue]);
 
   const updateInputValue = (value) => {

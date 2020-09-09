@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Navbar should render navbar correctly 1`] = `
+<Navbar
+  className="shadow"
+  collapseOnSelect={true}
+  expand="md"
+  variant="dark"
+>
+  <Form
+    inline={false}
+  >
+    <FormCheck
+      className="bg-undefined"
+      id="custom-switch"
+      label=""
+      type="switch"
+    />
+  </Form>
+  <NavbarToggle
+    aria-controls="responsive-navbar-nav"
+    label="Toggle navigation"
+  />
+  <NavbarCollapse
+    id="responsive-navbar-nav"
+  >
+    <Nav
+      className="ml-auto"
+      fill={false}
+      justify={false}
+    >
+      <Link
+        className="mr-4 my-2 text-light"
+        to="/"
+      >
+        Wszystko
+      </Link>
+      <Link
+        className="mr-4 my-2 text-light"
+        to="/subjects"
+      >
+        Przedmioty
+      </Link>
+      <Link
+        className="mr-4 my-2 text-light"
+        to="/about"
+      >
+        O stronie
+      </Link>
+    </Nav>
+  </NavbarCollapse>
+</Navbar>
+`;

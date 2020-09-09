@@ -4,7 +4,7 @@ import { Navbar, Nav, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { toogleTheme } from '../../../redux/theme/actions';
 
-const NavbarComponent = (props) => {
+export const NavbarComponent = (props) => {
   const { background } = props;
   return (
     <Navbar

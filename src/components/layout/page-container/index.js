@@ -9,7 +9,7 @@ const Div = styled.div`
   padding: 2rem;
 `;
 
-const PageContainer = ({ background, children }) => {
+export const PageContainer = ({ background, children }) => {
   const pageColor = background === 'primary' ? '#F8F9FA' : '#282b2f';
   return <Div background={pageColor}>{children}</Div>;
 };

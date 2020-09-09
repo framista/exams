@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test PageContainer should render correctly 1`] = `
+<styled.div
+  background="#282b2f"
+/>
+`;

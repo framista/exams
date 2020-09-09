@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test notFoundPage should render NotFoundPage correctly 1`] = `
+<Connect(PageContainer)>
+  <p
+    className="mt-5 display-3 text-primary text-center"
+  >
+    404
+  </p>
+  <h1
+    className="my-5 text-primary text-center text-uppercase"
+  >
+    Strona niedostępna
+  </h1>
+  <h3
+    className="text-primary text-center"
+  >
+    Niestety podany przez Ciebie adres strony nie jest dostępny
+  </h3>
+  <div
+    className="mt-5 text-center"
+  >
+    <Link
+      className="text-primary btn btn-primary text-light text-uppercase"
+      to="/"
+    >
+      Strona główna
+    </Link>
+  </div>
+</Connect(PageContainer)>
+`;

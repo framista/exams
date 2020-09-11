@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test modalForm should render modal form correctly 1`] = `
+<Modal
+  animation={true}
+  aria-labelledby="contained-modal-title-vcenter"
+  autoFocus={true}
+  backdrop="static"
+  centered={true}
+  dialogAs={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "ModalDialog",
+      "render": [Function],
+    }
+  }
+  enforceFocus={true}
+  keyboard={true}
+  onHide={[Function]}
+  restoreFocus={true}
+  show={true}
+  size="lg"
+>
+  <ModalHeader
+    closeButton={true}
+    closeLabel="Close"
+  >
+    <ModalTitle>
+      Add exam
+    </ModalTitle>
+  </ModalHeader>
+  <ModalBody>
+    <Form
+      id="modal-form"
+      inline={false}
+      noValidate={true}
+      onSubmit={[Function]}
+      validated={false}
+    >
+      <Connect(AutocompleteInput)
+        data="subject"
+        handleChange={[Function]}
+        label="Przedmiot"
+        value="matematyka"
+      />
+      <Connect(AutocompleteInput)
+        data="teacher"
+        handleChange={[Function]}
+        label="Nauczyciel"
+        value="Tomasz Matyski"
+      />
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Dział
+        </FormLabel>
+        <FormControl
+          maxLength="50"
+          minLength="5"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value="trygonometria"
+        />
+        <Feedback
+          type="invalid"
+        >
+          Pole powinno mieć 5 - 50 znaków
+        </Feedback>
+      </FormGroup>
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Zagadnienia
+        </FormLabel>
+        <FormControl
+          as="textarea"
+          maxLength="100"
+          minLength="15"
+          onChange={[Function]}
+          required={true}
+          rows="2"
+          value="Rozwiązywanie z trygonometrii"
+        />
+        <Feedback
+          type="invalid"
+        >
+          Pole powinno mieć 15 - 100 znaków
+        </Feedback>
+      </FormGroup>
+      <FormGroup>
+        <FormLabel
+          column={false}
+          srOnly={false}
+        >
+          Ocena
+        </FormLabel>
+        <FormControl
+          as="select"
+          onChange={[Function]}
+          value="1"
+        >
+          <option
+            value=""
+          >
+            Brak
+          </option>
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+        </FormControl>
+      </FormGroup>
+      <FormGroup>
+        <FormLabel
+          className="mr-3"
+          column={false}
+          srOnly={false}
+        >
+          Data
+        </FormLabel>
+        <a
+          allowSameDay={false}
+          customTimeInput={null}
+          dateFormat="dd.MM.yyyy"
+          dateFormatCalendar="LLLL yyyy"
+          disabled={false}
+          disabledKeyboardNavigation={false}
+          dropdownMode="scroll"
+          enableTabLoop={true}
+          excludeScrollbar={true}
+          focusSelectedMonth={false}
+          monthsShown={1}
+          nextMonthButtonLabel="Next Month"
+          nextYearButtonLabel="Next Year"
+          onBlur={[Function]}
+          onCalendarClose={[Function]}
+          onCalendarOpen={[Function]}
+          onChange={[Function]}
+          onClickOutside={[Function]}
+          onFocus={[Function]}
+          onInputClick={[Function]}
+          onInputError={[Function]}
+          onKeyDown={[Function]}
+          onMonthChange={[Function]}
+          onSelect={[Function]}
+          onYearChange={[Function]}
+          preventOpenOnFocus={false}
+          previousMonthButtonLabel="Previous Month"
+          previousYearButtonLabel="Previous Year"
+          readOnly={false}
+          renderDayContents={[Function]}
+          selected={2020-04-03T18:09:12.451Z}
+          shouldCloseOnSelect={true}
+          showFullMonthYearPicker={false}
+          showMonthYearPicker={false}
+          showPopperArrow={true}
+          showPreviousMonths={false}
+          showQuarterYearPicker={false}
+          showTimeInput={false}
+          showTimeSelect={false}
+          showTwoColumnMonthYearPicker={false}
+          showYearPicker={false}
+          strictParsing={false}
+          timeCaption="Time"
+          timeInputLabel="Time"
+          timeIntervals={30}
+          withPortal={false}
+        />
+      </FormGroup>
+      <FormGroup
+        className="d-flex justify-content-end"
+      >
+        <Button
+          active={false}
+          className="mr-4"
+          disabled={false}
+          onClick={[Function]}
+          variant="danger"
+        >
+          Usuń
+        </Button>
+        <Button
+          active={false}
+          className="mr-4"
+          disabled={false}
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Anuluj
+        </Button>
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          Zapisz
+        </Button>
+      </FormGroup>
+    </Form>
+  </ModalBody>
+</Modal>
+`;

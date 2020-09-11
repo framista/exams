@@ -60,7 +60,7 @@ const ModalForm = ({ show, onHide, title, exam, saveExam, deleteExam }) => {
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit} id="modal-form">
           <AutocompleteInput
             value={examData.subject}
             handleChange={(value) =>
